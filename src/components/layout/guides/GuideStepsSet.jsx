@@ -2,7 +2,7 @@ import Card from '../../UI/Card';
 import GuideStep from './GuideStep'; // Импортируем компонент StepItem
 import styles from './GuideStepsSet.module.css';
 
-const GuideStepSet = ({ steps, onEditStep, onDeleteStep }) => {
+const GuideStepSet = ({ guideStep, steps, onEditStep, onDeleteStep }) => {
 	return (
 		<>
 			{steps.length > 0 && (

@@ -8,8 +8,9 @@ function App() {
 	return (
 		<div className={styles.App}>
 			<FirstSideBar />
-			<MainContentBody />
+
 			<SecondSideBar />
+			<MainContentBody />
 		</div>
 	);
 }

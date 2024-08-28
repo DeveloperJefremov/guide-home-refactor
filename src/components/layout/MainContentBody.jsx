@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import StepsMockData from '../data/StepsMockData';
+// import StepsMockDataTwo from '../data/StepsMockDataTwo';
+import mockData from '../../data/MockData';
+import mockDataTwo from '../../data/MockDataTwo';
 import GuideStepSet from './guides/GuideStepsSet';
-
-GuideStepSet;
 
 const UserGuideHeader = ({ title, description }) => {
 	return (
@@ -26,7 +26,8 @@ const UserGuideFooter = ({ info }) => {
 };
 
 const MainContentBody = () => {
-	const [steps, setSteps] = useState(StepsMockData);
+	const [steps, setSteps] = useState(mockData);
+	const [guideStep, setGuideStep] = useState(mockDataTwo);
 
 	// const handleSaveStep = newStep => {
 	// 	setSteps(prevSteps => [...prevSteps, newStep]);
@@ -48,11 +49,14 @@ const MainContentBody = () => {
 				title='User Guide'
 				description='User guides are a type of technical documentation that enables customers and end-users with step-by-step instructions on how to execute a task or process.'
 			/>
-			<GuideStepSet
-				steps={steps}
-				onEditStep={handleEditStep}
-				onDeleteStep={handleDeleteStep}
-			/>
+			{guideStep.map(guideStep => (
+				<GuideStepSet
+					steps={steps}
+					onEditStep={handleEditStep}
+					onDeleteStep={handleDeleteStep}
+					key={guideStep.id}
+				/>
+			))}
 			<UserGuideFooter info='2024 Your Company. All rights reserved.' />
 		</>
 	);
